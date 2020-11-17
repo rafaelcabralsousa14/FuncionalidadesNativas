@@ -1,13 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer, TabActions } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Contatos from './pages/Contatos';
+import TextToSpeech from './pages/TextToSpeech'
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Contato" component={Contatos} />
+        <Tab.Screen name="TextToSpeech" component={TextToSpeech} />
+        <Tab.Screen name="Location" component={Location} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
@@ -19,3 +25,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
